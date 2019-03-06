@@ -2,7 +2,6 @@
 
 // Imports dependencies and set up http server
 const
-  const request = require('request'),
   express = require('express'),
   bodyParser = require('body-parser'),
   env = require('./env.js'),
