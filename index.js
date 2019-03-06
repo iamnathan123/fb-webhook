@@ -4,7 +4,7 @@
 const
   express = require('express'),
   bodyParser = require('body-parser'),
-  env = require('.env'),
+  env = require('./env.js'),
   app = express().use(bodyParser.json()); // creates express http server
 
 
