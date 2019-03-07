@@ -26,6 +26,10 @@ app.post('/webhook', (req, res) => {
       // will only ever contain one message, so we get index 0
       let webhook_event = entry.messaging[0];
       console.log(webhook_event);
+
+      // Get the sender PSID
+      let sender_psid = webhook_event.sender.id;
+      console.log('Sender PSID: ' + sender_psid);
     });
 
     // Returns a '200 OK' response to all requests
@@ -79,15 +83,3 @@ function handlePostback(sender_psid, received_postback) {
 function callSendAPI(sender_psid, response) {
 
 }
-
-body.entry.forEach(function(entry) {
-
-  // Gets the body of the webhook event
-  let webhook_event = entry.messaging[0];
-  console.log(webhook_event);
-
-  // Get the sender PSID
-  let sender_psid = webhook_event.sender.id;
-  console.log('Sender PSID: ' + sender_psid);
-
-});
