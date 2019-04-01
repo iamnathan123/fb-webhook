@@ -32,6 +32,10 @@ app.post('/webhook', (req, res) => {
       let sender_psid = webhook_event.sender.id;
       console.log('Sender PSID: ' + sender_psid);
 
+      // Get First Name From Profile
+      let first_name = webhook_event.first_name;
+      console.log('First Name: ' + first_name);
+
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
   if (webhook_event.message) {
@@ -54,7 +58,7 @@ app.post('/webhook', (req, res) => {
 app.get('/webhook', (req, res) => {
 
   // Your verify token. Should be a random string.
-  let VERIFY_TOKEN = env.VERIFY_TOKEN;
+  let VERIFY_TOKEN = envw.VERIFY_TOKEN;
 
   // Parse the query params
   let mode = req.query['hub.mode'];
@@ -84,12 +88,31 @@ function handleMessage(sender_psid, received_message) {
 
   // Check if the message contains text
   if (received_message.text) {
-
     // Create the payload for a basic text message
     response = {
-      "text": `You sent the message: "${received_message.text}". Now send me an image!`
+      "type": "template",
+      "payload": {
+        "template_type": "button",
+        "elements": [{
+          "title": "Hey there! What can I help you with today?",
+          "subtitle": "Tap a button to answer.",
+          "image_url": attachment_url,
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "Life Insurance",
+              "payload": "Life Insurance",
+            },
+            {
+              "type": "postback",
+              "title": "Health Insurance",
+              "payload": "Life Insurance",
+            }
+          ],
+        }]
+      }
     }
-  }
+    }
   else if (received_message.attachments) {
     // Get the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;

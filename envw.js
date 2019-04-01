@@ -1,0 +1,4 @@
+module.exports = {
+  "PAGE_ACCESS_TOKEN": "EAAEXc6P81nMBACF4ANAfNivRn7z55WCeGudfeLDDCTsxchGQ0lgTcIQbp0ejLQQQmxlBX7frc3QscxjDpU54aiGhmCgp6xMFCZCidfjriteln9exHFXytojtESGoU3yZCXfUZCKIZCYdH05PipJcnFgmWqYEA8o7zRxWG1R8qgZDZD",
+  "VERIFY_TOKEN": "nafan2"
+}
