@@ -96,7 +96,6 @@ function handleMessage(sender_psid, received_message) {
         "elements": [{
           "title": "Hey there! What can I help you with today?",
           "subtitle": "Tap a button to answer.",
-          "image_url": attachment_url,
           "buttons": [
             {
               "type": "postback",
